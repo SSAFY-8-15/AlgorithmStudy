@@ -1,12 +1,16 @@
+package tuesday;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main_KWG {
+public class Main_1991_KWG {
 	static char[][] tree;
-	static BufferedWriter bw = new BufferedWriter(new OuputStringWriter(System.out));
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		int n = Integer.parseInt(br.readLine());
@@ -26,7 +30,7 @@ public class Main_KWG {
 		bw.flush();
 	}
 
-	static void inorder(char c) {
+	static void inorder(char c) throws Exception {
 		bw.append(c);
 		int idx = c - 'A';
 		if (tree[idx][0] != '.')
@@ -35,7 +39,7 @@ public class Main_KWG {
 			preorder(tree[idx][1]);
 	}
 
-	static void preorder(char c) {
+	static void preorder(char c) throws Exception {
 		int idx = c - 'A';
 		if (tree[idx][0] != '.')
 			preorder(tree[idx][0]);
@@ -44,7 +48,7 @@ public class Main_KWG {
 			preorder(tree[idx][1]);
 	}
 
-	static void postorder(char c) {
+	static void postorder(char c) throws Exception {
 		int idx = c - 'A';
 		if (tree[idx][0] != '.')
 			preorder(tree[idx][0]);
