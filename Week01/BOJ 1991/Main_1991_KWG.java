@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class Main_1991_KWG {
 	static char[][] tree;
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
+ 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
