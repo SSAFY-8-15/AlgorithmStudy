@@ -22,8 +22,7 @@ import java.util.StringTokenizer;
 public class Main_1991_KWG {
 	static char[][] tree;
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
- 
->>>>>>> branch 'KWG' of https://github.com/SSAFY-8-15/AlgorithmStudy
+
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
