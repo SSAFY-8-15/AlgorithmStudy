@@ -3,7 +3,7 @@ package algo0806;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Main_1992 {
+public class Yeri_1991 {
 	static class Node{
 		String right;
 		String left;

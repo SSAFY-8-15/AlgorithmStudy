@@ -2,7 +2,7 @@ package algo0806;
 
 import java.util.Scanner;
 
-public class Main_1991 {
+public class Yeri_1992 {
 	static int N;
 	static int[][] map;
 	static String answer;
