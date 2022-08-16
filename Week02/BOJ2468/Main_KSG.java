@@ -1,65 +1,62 @@
-package week2.boj15558;
+package week2.boj2468;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class Main_KSG {
 
-	public static void main(String[] args) throws IOException {
+	static int max = 0;
+	
+	static int[] dr = {1,-1,0,0};
+	
+	static int[] dc = {0,0,-1,1};
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());
-		int k = Integer.parseInt(st.nextToken());
-		char[] left = br.readLine().toCharArray();
-		char[] right = br.readLine().toCharArray();
-		System.out.println(bfs(n,k,left,right)?1:0);
+		int n = Integer.parseInt(br.readLine());
+		int[][] table = new int[n+2][n+2];
+		Set<Integer> set = new HashSet<>();
+		for(int i=1; i<=n; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			for(int j=1; j<=n; j++) {
+				table[i][j] = Integer.parseInt(st.nextToken());
+				set.add(table[i][j]);
+			}
+		}
+		set.add(0);
+		int[][] visited = new int[n+2][n+2];
+		int k = 1;
+		for(int h : set) {
+			int cnt = 0;
+			for(int i=1; i<=n; i++) {
+				for(int j=1; j<=n; j++) {
+					if(table[i][j] > h && visited[i][j] < k) {
+						cnt++;
+						dfs(table,visited,i,j,k,h);
+					}
+				}
+			}
+			max = Math.max(max,cnt);
+			k++;
+		}
+		System.out.println(max);
 		br.close();
 	}
 
-	private static boolean bfs(int n, int k, char[] left, char[] right) {
-		Deque<int[]> deque = new LinkedList<int[]>();
-		deque.add(new int[] {0,0,-1});
-		left[0] = '2';
-		int length = left.length;
-		while(!deque.isEmpty()) {
-			int[] arr = deque.removeFirst();
-			int line = arr[0];
-			int pos = arr[1];
-			int cnt = arr[2];
-			if(pos <= cnt) {
-				continue;
+	private static void dfs(int[][] table, int[][] visited, int i, int j, int k, int limit) {
+		visited[i][j] = k;
+		for(int d=0; d<4; d++) {
+			int r = i+dr[d];
+			int c = j+dc[d];
+			if(table[r][c] > limit && visited[r][c] < k) {
+				dfs(table,visited,r,c,k,limit);
 			}
-			if(pos >= length-k) {
-				return true;
-			}
-			char[] currentLine;
-			char[] oppositeLine;
-			if(line == 0) {
-				currentLine = left;
-				oppositeLine = right;
-			}else {
-				currentLine = right;
-				oppositeLine = left;
-			}
-			
-			if(oppositeLine[pos+k] == '1') {
-				oppositeLine[pos+k] = '2';
-				deque.addLast(new int[] {line^1,pos+k,cnt+1});
-			}
-			if(currentLine[pos+1] == '1') {
-				currentLine[pos+1] = '2';
-				deque.addLast(new int[] {line,pos+1,cnt+1});
-			}
-			if(pos > 0 && currentLine[pos-1] == '1') {
-				currentLine[pos-1] = '2';
-				deque.addLast(new int[] {line,pos-1,cnt+1});
-			}
-			
 		}
-		return false;
+		
 	}
+
 }
