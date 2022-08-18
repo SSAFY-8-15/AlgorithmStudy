@@ -1,3 +1,4 @@
+
 package week1.boj1991;
 
 import java.io.BufferedReader;
@@ -57,3 +58,4 @@ public class Main_KSG {
 		sb.append((char)(i+'A'-1));
 	}
 }
+
