@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_15558_점프_게임 {
+public class Main_15558_점프_게임{
 
 	static char[][] lines;
 	static int N;
