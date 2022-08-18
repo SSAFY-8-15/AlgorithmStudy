@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_17281_야구2 {
+public class Main_17281_야구{
 	
 	static int[]p = {1,2,3,4,5,6,7,8};
 	//static int[]p = {4, 5, 6, 7, 8, 1, 2, 3};
