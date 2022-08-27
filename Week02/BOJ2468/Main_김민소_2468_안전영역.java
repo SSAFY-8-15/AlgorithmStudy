@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_2468_안전영역{
+public class Main_2468_안전영역 {
 	
 	static int N;
 	static int[][] map;
